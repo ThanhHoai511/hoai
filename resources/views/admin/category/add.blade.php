@@ -13,7 +13,7 @@
         @endif
         <div class="form-group">
             <label>Name</label>
-            <input name="catename" class="form-control" placeholder="Enter name" required>
+            <input name="name" class="form-control" placeholder="Enter name">
         </div>
         <div class="form-group">
             <label>Category Parent</label>

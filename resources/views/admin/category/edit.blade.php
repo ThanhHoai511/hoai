@@ -14,7 +14,7 @@
         {{csrf_field()}}
         <div class="form-group">
             <label>Name</label>
-            <input name="catename" class="form-control" value="{{ $cate->name }}">
+            <input name="name" class="form-control" value="{{ $cate->name }}">
         </div>
         <div class="form-group">
             <label>Category Parent</label>

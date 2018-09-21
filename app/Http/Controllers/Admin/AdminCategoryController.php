@@ -3,14 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Validator;
-
 use App\Category;
-
-use Illuminate\Database\Eloquent\Collection;
 
 class AdminCategoryController extends Controller
 {
@@ -22,6 +17,7 @@ class AdminCategoryController extends Controller
     public function index()
     {
         $cate = Category::all();
+
         return view('admin.category.list', ['cate' => $cate]);
     }
 
@@ -47,7 +43,7 @@ class AdminCategoryController extends Controller
     {
         $validator = Validator::make($request->all(), 
         [
-            'name' => 'bail|required|unique:category,name',
+            'name' => 'bail|required|unique:categories,name',
         ]);
 
         if ($validator->fails()) {
@@ -56,11 +52,11 @@ class AdminCategoryController extends Controller
                 ->withErrors($validator);
         }
         $cate = new Category;
-        $cate->name = $request->catename;
+        $cate->name = $request->name;
         $cate->id_cate = $request->cate;
         $cate->save();
-
         $c = Category::all();
+
         return view('admin.category.list', ['cate' => $c]);
     }
 
@@ -84,8 +80,8 @@ class AdminCategoryController extends Controller
     public function edit($id)
     {
         $cate = Category::find($id);
-
         $allcate = Category::all();
+
         return view('admin.category.edit', ['cate' => $cate, 'allcate' => $allcate]);
     }
 
@@ -100,7 +96,7 @@ class AdminCategoryController extends Controller
     {
         $validator = Validator::make($request->all(), 
         [
-            'name' => 'bail|required|unique:category,name',
+            'name' => 'bail|required|unique:categories,name',
         ]);
 
         if ($validator->fails()) {
@@ -109,9 +105,10 @@ class AdminCategoryController extends Controller
                 ->withErrors($validator);
         }
         $cate = Category::find($id);
-        $cate->name = $request->catename;
+        $cate->name = $request->name;
         $cate->save();
         $c = Category::all();
+
         return view('admin.category.list', ['cate' => $c]);
     }
 
@@ -125,6 +122,7 @@ class AdminCategoryController extends Controller
     {
         Category::destroy($id);
         $c = Category::all();
+
         return view('admin.category.list', ['cate' => $c]);
     }
 }

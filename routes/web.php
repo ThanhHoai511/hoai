@@ -18,15 +18,10 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function() {
     Route::group(['prefix' => 'category'], function() {
         Route::get('list', 'Admin\AdminCategoryController@index')->name('list');
-
         Route::get('add', 'Admin\AdminCategoryController@create')->name('add');
-
         Route::post('add', 'Admin\AdminCategoryController@store');
-
         Route::get('edit/{id}', 'Admin\AdminCategoryController@edit');
-
         Route::post('edit/{id}', 'Admin\AdminCategoryController@update');
-
         Route::get('delete/{id}', 'Admin\AdminCategoryController@destroy');
     });
 });
