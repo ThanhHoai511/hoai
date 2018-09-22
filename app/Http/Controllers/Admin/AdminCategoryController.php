@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\AdminAddCategoryRequest;
+use App\Http\Requests\AdminEditCategoryRequest;
 use Illuminate\Support\Facades\Validator;
 use App\Category;
 
@@ -39,18 +41,8 @@ class AdminCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminAddCategoryRequest $request)
     {
-        $validator = Validator::make($request->all(), 
-        [
-            'name' => 'bail|required|unique:categories,name',
-        ]);
-
-        if ($validator->fails()) {
-            return back()
-                ->withInput()
-                ->withErrors($validator);
-        }
         $cate = new Category;
         $cate->name = $request->name;
         $cate->id_cate = $request->cate;
@@ -92,18 +84,8 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminEditCategoryRequest $request, $id)
     {
-        $validator = Validator::make($request->all(), 
-        [
-            'name' => 'bail|required|unique:categories,name',
-        ]);
-
-        if ($validator->fails()) {
-            return back()
-                ->withInput()
-                ->withErrors($validator);
-        }
         $cate = Category::find($id);
         $cate->name = $request->name;
         $cate->save();

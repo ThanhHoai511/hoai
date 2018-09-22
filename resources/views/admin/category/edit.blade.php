@@ -2,15 +2,7 @@
 @section('title', 'Edit Category')
 @section('content')
     <form role="form" method="POST">
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        @include('admin.errors.error')
         {{csrf_field()}}
         <div class="form-group">
             <label>Name</label>
