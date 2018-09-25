@@ -19,6 +19,7 @@ class AdminProductController extends Controller
     public function index()
     {
         $prod = Product::all();
+
     	return view('admin.product.list', ['product' => $prod]);
     }
 
@@ -30,6 +31,7 @@ class AdminProductController extends Controller
     public function create()
     {
         $cate = Category::all();
+
     	return view('admin.product.add', ['cate' => $cate]);
     }
 
@@ -58,8 +60,8 @@ class AdminProductController extends Controller
         $product->image = json_encode($filename_arr);
         $product->id_cate = $request->cate;
     	$product->save();
-        $pro = Product::all();
-    	return view('admin.product.list', ['product' => $pro]);
+        
+        return redirect()->route('listProduct');
     }
 
     /**
@@ -83,6 +85,7 @@ class AdminProductController extends Controller
     {
         $cate = Category::all();
         $product = Product::find($id);
+
         return view('admin.product.edit', ['product' => $product, 'cate' => $cate]);
     }
 
@@ -114,8 +117,8 @@ class AdminProductController extends Controller
         }
         $product->id_cate = $request->cate;
         $product->save();
-        $pro = Product::all();
-        return view('admin/product/list', ['product' =>$pro]);
+        
+        return redirect()->route('listProduct');
     }
 
     /**
@@ -127,7 +130,7 @@ class AdminProductController extends Controller
     public function destroy($id)
     {
         Product::destroy($id);
-        $prod = Product::all();
-        return view('admin.product.list', ['product' => $prod]);
+        
+        return redirect()->route('listProduct');
     }
 }

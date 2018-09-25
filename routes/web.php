@@ -17,8 +17,8 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::group(['prefix' => 'category'], function() {
-        Route::get('list', 'Admin\AdminCategoryController@index')->name('list');
-        Route::get('add', 'Admin\AdminCategoryController@create')->name('add');
+        Route::get('list', 'Admin\AdminCategoryController@index')->name('listCategory');
+        Route::get('add', 'Admin\AdminCategoryController@create')->name('addCategory');
         Route::post('add', 'Admin\AdminCategoryController@store');
         Route::get('edit/{id}', 'Admin\AdminCategoryController@edit');
         Route::post('edit/{id}', 'Admin\AdminCategoryController@update');
@@ -26,7 +26,7 @@ Route::group(['prefix' => 'admin'], function() {
     });
 
     Route::group(['prefix' => 'product'], function() {
-        Route::get('list', 'Admin\AdminProductController@index')->name('list');
+        Route::get('list', 'Admin\AdminProductController@index')->name('listProduct');
         Route::get('add', 'Admin\AdminProductController@create')->name('addProduct');
         Route::post('add', 'Admin\AdminProductController@store');
         Route::get('edit/{id}', 'Admin\AdminProductController@edit');
