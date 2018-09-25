@@ -47,9 +47,8 @@ class AdminCategoryController extends Controller
         $cate->name = $request->name;
         $cate->id_cate = $request->cate;
         $cate->save();
-        $c = Category::all();
-
-        return view('admin.category.list', ['cate' => $c]);
+        
+        return redirect()->route('listCategory');
     }
 
     /**
@@ -89,9 +88,8 @@ class AdminCategoryController extends Controller
         $cate = Category::find($id);
         $cate->name = $request->name;
         $cate->save();
-        $c = Category::all();
-
-        return view('admin.category.list', ['cate' => $c]);
+        
+        return redirect()->route('listCategory');
     }
 
     /**
@@ -103,8 +101,7 @@ class AdminCategoryController extends Controller
     public function destroy($id)
     {
         Category::destroy($id);
-        $c = Category::all();
-
-        return view('admin.category.list', ['cate' => $c]);
+        
+        return redirect()->route('listCategory');
     }
 }
