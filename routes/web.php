@@ -33,4 +33,13 @@ Route::group(['prefix' => 'admin'], function() {
         Route::post('edit/{id}', 'Admin\AdminProductController@update');
         Route::get('delete/{id}', 'Admin\AdminProductController@destroy');
     });
+
+    Route::group(['prefix' => 'slide'], function() {
+        Route::get('list', 'Admin\AdminSlideController@index')->name('listSlide');
+        Route::get('add', 'Admin\AdminSlideController@create')->name('addSlide');
+        Route::post('add', 'Admin\AdminSlideController@store');
+        Route::get('edit/{id}', 'Admin\AdminSlideController@edit');
+        Route::post('edit/{id}', 'Admin\AdminSlideController@update');
+        Route::get('delete/{id}', 'Admin\AdminSlideController@destroy');
+    });
 });

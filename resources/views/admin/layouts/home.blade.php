@@ -110,7 +110,18 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Slide<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ asset('admin/slide/list') }}">List slide</a>
+                                </li>
+                                <li>
+                                    <a href="{{ asset('admin/slide/add') }}">Add slide</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
