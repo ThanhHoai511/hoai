@@ -36,6 +36,13 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+            <label>Featured Product</label>
+            <select class="form-control" id="featured" class="featured" name="featured">
+                <option value="0" {{ $product->is_featured_product == '0' ? 'selected' : ''}}>No</option>
+                <option value="1" {{ $product->is_featured_product == '0' ? 'selected' : ''}}>Yes</option>
+            </select>
+        </div>
         <button type="submit" name="btnAdd" class="btn btn-success">Edit</button>
         <a type="button" href="{{ asset('admin/product/list') }}"><button type="button" class="btn btn-primary">Cancel</button></a>
     </form>

@@ -36,6 +36,13 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+            <label>Featured Product</label>
+            <select class="form-control" id="featured" class="featured" name="featured">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
         <button type="submit" name="btnAdd" class="btn btn-default">Add</button>
         <button type="reset" class="btn btn-default">Reset</button>
     </form>
