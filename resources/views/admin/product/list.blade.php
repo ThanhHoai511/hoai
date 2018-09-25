@@ -29,14 +29,11 @@
                                 <td>{{$prod->price}}</td>
                                 <td style="width: 30%;">
                                     @php
-                                        $images = $prod->image;
-                                        $imgs = json_decode($images);
+                                        $imgs = $prod->getImage($prod->id);
                                     @endphp
-                                    @if(is_array($imgs) || is_object($imgs))
-                                        @foreach ($imgs as $img)
-                                            <img src="{{ asset('admin/images/'.$img) }}" alt="" style="width: 100px;height: 90px;">
-                                        @endforeach
-                                    @endif
+                                    @foreach ($imgs as $img)
+                                        <img src="{{ asset('admin/images/'.$img) }}" alt="" style="width: 100px;height: 90px;">
+                                    @endforeach
                                 </td>
                                 <td>{{$prod->category->name}}</td>
                                 <td>

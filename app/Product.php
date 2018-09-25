@@ -11,4 +11,12 @@ class Product extends Model
 	  	return $this->belongsTo('App\Category', 'id_cate', 'id');
 	}
 	
+	public function getImage($idProduct)
+	{
+		$product = Product::find($idProduct);
+		$images = $product->image;
+		$imgs = json_decode($images);
+		
+		return $imgs;
+	}
 }
