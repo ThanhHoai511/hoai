@@ -16,9 +16,10 @@
                                 <th>Price</th>
                                 <th>Image</th>
                                 <th>Category</th>
+                                <th>Is Feature Product</th>
                                 <th>Action</th>
                             </tr>
-                        </thead>
+                        </thead> 
                         <tbody>
                         	@foreach($product as $prod)
                             <tr>
@@ -37,13 +38,21 @@
                                 </td>
                                 <td>{{$prod->category->name}}</td>
                                 <td>
+                                    @if($prod->is_featured_product == 0)
+                                        No
+                                    @endif
+                                    @if($prod->is_featured_product == 1)
+                                        Featured Product
+                                    @endif
+                                </td>
+                                <td>
                                 	<a href="{{ asset('admin/product/edit/'. $prod->id) }}"><button class="btn btn-success">Edit</button></a>
                                 	<a href="{{ asset('admin/product/delete/' . $prod->id) }}" onclick="return confirm('Ban co chac chan muon xoa {{$prod->name}}?')"><button class="btn btn-danger">Delete</button></a>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
-                    </table>
+                    </table>                    
                 </div>
                 <!-- /.panel-body -->
             </div>

@@ -59,6 +59,7 @@ class AdminProductController extends Controller
         }
         $product->image = json_encode($filename_arr);
         $product->id_cate = $request->cate;
+        $product->is_featured_product = $request->featured;
     	$product->save();
         
         return redirect()->route('listProduct');
@@ -116,6 +117,7 @@ class AdminProductController extends Controller
             $product->image = json_encode($filename_arr);
         }
         $product->id_cate = $request->cate;
+        $product->is_featured_product = $request->featured;
         $product->save();
         
         return redirect()->route('listProduct');

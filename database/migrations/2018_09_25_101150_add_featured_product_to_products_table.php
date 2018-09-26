@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddOrderToSlidesTable extends Migration
+class AddFeaturedProductToProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddOrderToSlidesTable extends Migration
      */
     public function up()
     {
-        Schema::table('slides', function (Blueprint $table) {
-            $table->integer('order')->nullable();
+        Schema::table('products', function (Blueprint $table) {
+            $table->integer('is_featured_product')->default(0);
         });
     }
 
@@ -25,8 +25,8 @@ class AddOrderToSlidesTable extends Migration
      */
     public function down()
     {
-        Schema::table('slides', function (Blueprint $table) {
-            $table->dropColumn('order');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('is_featured_product');
         });
     }
 }
