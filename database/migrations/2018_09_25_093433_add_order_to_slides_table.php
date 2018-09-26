@@ -26,7 +26,7 @@ class AddOrderToSlidesTable extends Migration
     public function down()
     {
         Schema::table('slides', function (Blueprint $table) {
-            //
+            $table->dropColumn('order');
         });
     }
 }

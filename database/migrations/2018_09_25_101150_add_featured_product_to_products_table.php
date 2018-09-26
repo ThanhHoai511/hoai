@@ -26,7 +26,7 @@ class AddFeaturedProductToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            //
+            $table->dropColumn('is_featured_product');
         });
     }
 }

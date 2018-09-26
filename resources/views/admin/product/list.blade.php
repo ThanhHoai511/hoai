@@ -52,7 +52,7 @@
                             </tr>
                             @endforeach
                         </tbody>
-                    </table>
+                    </table>                    
                 </div>
                 <!-- /.panel-body -->
             </div>
