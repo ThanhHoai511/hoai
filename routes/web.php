@@ -12,10 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('auth.login');
+})->name('index');
 
-Route::group(['prefix' => 'admin'], function() {
+Route::get('/coffee', function(){
+    return view('client.index');
+})->name('client')->middleware('auth');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role']], function() {
     Route::group(['prefix' => 'category'], function() {
         Route::get('list', 'Admin\AdminCategoryController@index')->name('listCategory');
         Route::get('add', 'Admin\AdminCategoryController@create')->name('addCategory');
@@ -42,4 +46,14 @@ Route::group(['prefix' => 'admin'], function() {
         Route::post('edit/{id}', 'Admin\AdminSlideController@update');
         Route::get('delete/{id}', 'Admin\AdminSlideController@destroy');
     });
+    Route::get('/editPass', 'Auth\ChangePasswordController@edit')->name('editPass');
+    Route::put('/updatePass', 'Auth\ChangePasswordController@update')->name('updatePass');
+
+}); 
+
+Auth::routes();
+
+Route::group(['prefix' => '', 'middleware' => ['role']], function() {
+    Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 });
+
