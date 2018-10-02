@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Coffee Shop</title>
 	<link rel="icon" href="{{ asset('client/images/icon.png') }}">
-    <link href="{{asset('client/css/bootstrap.min.css')}}" rel="stylesheet">
-	<link href="{{asset('client/css/index.css')}}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="{{ asset('client/css/bootstrap.min.css') }}">
+	{{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
+	<link rel="stylesheet" href="{{ asset('client/css/index.css') }}">
 </head>
 <body>
 	<div class="container">
@@ -16,7 +16,7 @@
 				<h1>Coffee Shop</h1>
 			</div>
 			<div class="header-right col-md-6">
-			  	<ul class="navbar-nav ml-auto">
+			  	<ul class="navbar-nav">
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -30,7 +30,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}</span>
+                                {{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -51,14 +51,14 @@
                 </ul>
 			</div>
 		</div>
-		@section('navbar')
+		@include('client.layouts.navbar')	
 		@yield('content')	
 		<div class="footer">
 			<h4>Thanks for visiting Coffee Shop!</h4>
 		</div>
 	</div>
-	<script src="{{asset('js/app.js') }}" defer></script>
-    <script src="{{asset('client/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset('client/js/js/bootstrap.min.js')}}"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('client/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('client/js/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

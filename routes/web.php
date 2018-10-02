@@ -10,14 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('client.index');
-})->name('index');
-
-Route::get('login', function() {
-    return view('auth.login');
-})->name('login'); 
+Route::get('/', 'HomeController@coffee')->name('index');
+// Route::get('/', function () {
+//     return view('client.index');
+// })->name('index');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role']], function() {
     Route::group(['prefix' => 'category'], function() {
@@ -48,6 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role']], function()
     });
     
 }); 
+
 Route::get('/editPass', 'Auth\ChangePasswordController@edit')->name('editPass');
 Route::put('/updatePass', 'Auth\ChangePasswordController@update')->name('updatePass');
 
@@ -56,4 +53,3 @@ Auth::routes();
 Route::group(['prefix' => '', 'middleware' => ['role']], function() {
     Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 });
-
