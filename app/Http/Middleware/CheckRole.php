@@ -20,6 +20,6 @@ class CheckRole
             return $next($request);
         }
 
-        return redirect()->route('client');
+        return redirect()->route('index');
     }
 }

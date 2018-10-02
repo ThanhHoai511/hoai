@@ -1,0 +1,32 @@
+.header h1{
+	padding-top: 50px;
+}
+.header{
+	width: 40%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+td img{
+	width: 100px;
+	height: 100px;
+}
+span{
+	float:left;
+	height: 30px;
+}
+input{
+	float: left;
+	height: 30px;
+	text-align: center;
+}
+.foot{
+	width: 40%;
+	min-height: 100px;
+	margin: 0 auto
+}
+h2{
+	font-size: 40px;
+	font-style: italic;
+	color: blue;
+	padding-top: 60px;
+}
