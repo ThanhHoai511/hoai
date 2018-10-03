@@ -12,11 +12,14 @@
 	font-size: 40px;
 }
 .header-right{
-	margin-top: 55px;
+	margin-top: 70px;
 }
 .header-right ul{
 	display: inline-block;
-	padding-left: 70px;
+	padding-left: 60px;
+}
+.dropdown-menu-right a{
+	margin-left: 20px;
 }
 .header-right ul li{
 	padding-right: 30px;
