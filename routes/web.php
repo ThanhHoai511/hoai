@@ -10,14 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('auth.login');
-})->name('index');
-
-Route::get('/coffee', function(){
-    return view('client.index');
-})->name('client')->middleware('auth');
+Route::get('/', 'HomeController@coffee')->name('index');
+// Route::get('/', function () {
+//     return view('client.index');
+// })->name('index');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role']], function() {
     Route::group(['prefix' => 'category'], function() {
@@ -46,14 +42,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role']], function()
         Route::post('edit/{id}', 'Admin\AdminSlideController@update');
         Route::get('delete/{id}', 'Admin\AdminSlideController@destroy');
     });
-    Route::get('/editPass', 'Auth\ChangePasswordController@edit')->name('editPass');
-    Route::put('/updatePass', 'Auth\ChangePasswordController@update')->name('updatePass');
-
+    
 }); 
+
+Route::get('/editPass', 'Auth\ChangePasswordController@edit')->name('editPass');
+Route::put('/updatePass', 'Auth\ChangePasswordController@update')->name('updatePass');
 
 Auth::routes();
 
 Route::group(['prefix' => '', 'middleware' => ['role']], function() {
     Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 });
-
