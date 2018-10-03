@@ -8,15 +8,15 @@
 	  	</ol>
 	  	<div class="carousel-inner">
 	    	<div class="item active">
-	      		<img src="client/images/sl.jpg" alt="Los Angeles">
+	      		<img src="client/images/sl.jpg">
 	    	</div>
 
 	    	<div class="item">
-	      		<img src="client/images/sl.jpg" alt="Chicago">
+	      		<img src="client/images/sl.jpg">
 	    	</div>
 
 		    <div class="item">
-		      	<img src="client/images/sl.jpg" alt="New York">
+		      	<img src="client/images/sl.jpg">
 		    </div>
 	  	</div>
 	  	<a class="left carousel-control" href="#myCarousel" data-slide="prev">

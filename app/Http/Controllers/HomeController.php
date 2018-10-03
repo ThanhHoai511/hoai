@@ -25,10 +25,4 @@ class HomeController extends Controller
     {
         return view('admin.layouts.welcome');
     }
-
-    public function coffee()
-    {
-        return view('client.index');
-    }
-    
 }
