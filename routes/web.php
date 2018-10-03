@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'Controller@coffee')->name('index');
+Route::get('/', 'User\CoffeeShopController@index')->name('index');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role']], function() {
     Route::group(['prefix' => 'category'], function() {

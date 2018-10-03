@@ -1,4 +1,5 @@
 @extends('client.layouts.app')
+@section('title', 'Coffee Shop')
 @section('content')
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 	  	<ol class="carousel-indicators">
@@ -7,17 +8,17 @@
 	    	<li data-target="#myCarousel" data-slide-to="2"></li>
 	  	</ol>
 	  	<div class="carousel-inner">
-	    	<div class="item active">
-	      		<img src="client/images/sl.jpg">
-	    	</div>
-
-	    	<div class="item">
-	      		<img src="client/images/sl.jpg">
-	    	</div>
-
-		    <div class="item">
-		      	<img src="client/images/sl.jpg">
-		    </div>
+			@foreach($slide as $sl)
+				@if($sl->order == 1)
+			    	<div class="item active">
+			      		<img src="{{ asset('admin/slides/'.$sl->link) }}">
+			    	</div>
+			    @else
+			    	<div class="item">
+			      		<img src="{{ asset('admin/slides/'.$sl->link) }}">
+			    	</div>
+			    @endif
+		    @endforeach
 	  	</div>
 	  	<a class="left carousel-control" href="#myCarousel" data-slide="prev">
 	    	<span class="glyphicon glyphicon-chevron-left"></span>
@@ -29,145 +30,41 @@
 	  	</a>
 	</div>
 	<div class="noibat">
-		<h3>San pham noi bat</h3>
+		<h3>Sản phẩm nổi bật</h3>
 		<div class="row">
-		  	<div class="col-md-4">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-4">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-4">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		</div>
-		<div class="row">
-		  	<div class="col-md-4">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-4">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-4">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
+			@foreach($featured as $f)
+			  	<div class="col-md-4">
+			    	<div class="thumbnail">
+			      		<a href="#">
+			     			@php
+                                $imgs = $f->getImage($f->id);
+                            @endphp
+                            <img src="{{ asset('admin/images/'.$imgs[0]) }}">
+			      		</a>
+			    	</div>
+			  	</div>
+		  	@endforeach
 		</div>
 	</div>
 	<div class="sanpham">
-		<h3>San pham</h3>
+		<h3>Sản phẩm</h3>
 		<div class="row">
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		</div>
-		<div class="row">
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		</div>
-		<div class="row">
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
-		  	<div class="col-md-3">
-		    	<div class="thumbnail">
-		      		<a href="#">
-		        		<img src="{{asset('client/images/sl.jpg')}}">
-		      		</a>
-		    	</div>
-		  	</div>
+			@foreach($product as $pro)
+			  	<div class="col-md-3">
+			    	<div class="thumbnail">
+			      		<a href="#">
+			        		@php
+                                $imgs = $pro->getImage($pro->id);
+                            @endphp
+                            <img src="{{ asset('admin/images/'.$imgs[0]) }}">
+                            <div class="caption">
+                            	<p class="price">{{ $pro->price }} VND</p>
+					            <p class="name">{{ $pro->name }}</p>
+					        </div>
+			      		</a>
+			    	</div>
+			  	</div>
+		  	@endforeach
 		</div>
 	</div>
 @endsection	

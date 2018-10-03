@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Coffee Shop</title>
+	<title>@yield('title')</title>
 	<link rel="icon" href="{{ asset('client/images/icon.png') }}">
 	<link rel="stylesheet" href="{{ asset('client/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('client/css/index.css') }}">
