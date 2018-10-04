@@ -6,6 +6,7 @@
 	<link rel="icon" href="{{ asset('client/images/icon.png') }}">
 	<link rel="stylesheet" href="{{ asset('client/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('client/css/index.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
 	<div class="container">
@@ -57,8 +58,8 @@
 			<h4>Thanks for visiting Coffee Shop!</h4>
 		</div>
 	</div>
-	<script src="js/app.js"></script>
-    <script src="client/js/jquery-3.3.1.min.js"></script>
-    <script src="client/js/bootstrap.min.js"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('client/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('client/js/bootstrap.min.js') }}"></script>
 </body>
 </html>
