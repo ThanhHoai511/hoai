@@ -6,6 +6,8 @@
 	<link rel="icon" href="{{ asset('client/images/icon.png') }}">
 	<link rel="stylesheet" href="{{ asset('client/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('client/css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('client/css/detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('client/css/cart.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
@@ -52,7 +54,6 @@
                 </ul>
 			</div>
 		</div>
-		@include('client.layouts.navbar')	
 		@yield('content')	
 		<div class="footer">
 			<h4>Thanks for visiting Coffee Shop!</h4>
