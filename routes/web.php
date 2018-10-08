@@ -11,6 +11,12 @@
 |
 */
 Route::get('/', 'User\CoffeeShopController@index')->name('index');
+Route::group(['prefix' => '/'], function() {
+    Route::get('product/{id}', 'User\CoffeeShopController@detail')->name('detail');
+    Route::post('product/{id}', 'User\CoffeeShopController@comment')->name('comment');
+    Route::get('cart', 'User\CoffeeShopController@cart')->name('cart');
+});
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role']], function() {
     Route::group(['prefix' => 'category'], function() {
@@ -39,7 +45,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role']], function()
         Route::post('edit/{id}', 'Admin\AdminSlideController@update');
         Route::get('delete/{id}', 'Admin\AdminSlideController@destroy');
     });
-    
 }); 
 
 Route::get('/editPass', 'Auth\ChangePasswordController@edit')->name('editPass');

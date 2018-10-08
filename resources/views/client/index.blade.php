@@ -1,13 +1,14 @@
 @extends('client.layouts.app')
 @section('title', 'Coffee Shop')
 @section('content')
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	@include('client.layouts.navbar')	
+	<div id="myCarousel" class="carousel slide index" data-ride="carousel">
 	  	<ol class="carousel-indicators">
 	    	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 	    	<li data-target="#myCarousel" data-slide-to="1"></li>
 	    	<li data-target="#myCarousel" data-slide-to="2"></li>
 	  	</ol>
-	  	<div class="carousel-inner">
+	  	<div class="carousel-inner index-inner">
 			@foreach($slide as $sl)
 				@if($sl->order == 1)
 			    	<div class="item active">
@@ -52,7 +53,7 @@
 			@foreach($product as $pro)
 			  	<div class="col-md-3">
 			    	<div class="thumbnail">
-			      		<a href="#">
+			      		<a href="product/{{ $pro->id }}">
 			        		@php
                                 $imgs = $pro->getImage($pro->id);
                             @endphp

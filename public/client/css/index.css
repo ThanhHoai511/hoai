@@ -39,26 +39,24 @@
 	width: 100%;
 	height: 100%;
 }
-.carousel{
+.index{
 	width: 90%;
 	margin:50px auto;
 }
-.carousel-inner{
+.index-inner{
 	width: 100%;
 	height: 700px;
 }
 .noibat{
 	width: 85%;
-	min-height: 400px;
-	margin:0 auto;
-}
-.sanpham{
-	border-bottom: 1px solid;
+	min-height: 300px;
+	margin:30px auto;
 }
 .footer{
+	border-top: 1px solid;
 	height: 100px;
 }
-p{
+.name, .price{
 	text-align: center;
 	font-size: 16px;
 }
@@ -75,4 +73,7 @@ h4{
 }
 a:hover{
 	text-decoration: none;
+}
+h3{
+	margin-left: 150px;
 }

@@ -1,0 +1,47 @@
+.row{
+	width: 75%;
+	margin: 0 auto;
+}
+.row h2{
+	color: red;
+}
+.detail{
+	width: 850px;
+	margin:50px auto;
+}
+.detail-inner{
+	width: 100%;
+	height: 500px;
+}
+.button{
+	width: 20%;
+	margin:0 auto;
+}
+.btn-primary{
+	margin-right: 30px;
+}
+i{
+	font-weight: bold;
+	display: inline-block;
+}
+.product{
+	margin-bottom: 30px;
+}
+h5{
+	font-size: 25px;
+	font-weight: bold;
+	padding-left: 140px;
+}
+h6{
+	font-size: 15px;
+	font-weight: bold;
+}
+.comments{
+	margin-bottom: 30px;
+}
+.comments input{
+	width: 600px;
+	height: 40px;
+	border-radius: 4px;
+	margin-right:20px;
+}
