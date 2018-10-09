@@ -3,15 +3,7 @@
 @section('content')
 	<form role="form" method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
-        @if (count($errors) > 0)
-            <div class="alert alert-danger" > 
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        @include('admin.errors.error')
         <div class="form-group">
             <label>Image</label>
             <input type="file" class="form-control" name="image" />
@@ -19,8 +11,8 @@
         <div class="form-group">
             <label>Active</label>
             <select class="form-control" name="active">
-                <option value="0">Unactive</option>
-                <option value="1">Active</option>
+                <option value="0" {{ old('active') == 0 ? 'selected' : ''}}>Unactive</option>
+                <option value="1"  {{ old('active') == 1 ? 'selected' : ''}}>Active</option>
             </select>
         </div>
         <div class="form-group">

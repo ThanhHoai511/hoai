@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AdminSlideRequest;
 use App\Http\Controllers\Controller;
 use App\Slide;
 
@@ -36,7 +37,7 @@ class AdminSlideController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminSlideRequest $request)
     {
         $slide = new Slide;
         $image = $request->file('image');
@@ -81,7 +82,7 @@ class AdminSlideController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminSlideRequest $request, $id)
     {
         $slide = Slide::find($id);
         if($image = $request->file('image'))

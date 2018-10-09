@@ -41,8 +41,18 @@ class CoffeeShopController extends Controller
         return redirect()->route('detail', [$comment->id_product]);        
     }
 
-    public function cart()
+    public function category(Request $request, $id)
     {
-        return view('client.cart');
+        $cate = Category::where('id_cate', 1)->get();
+        if (isset($_GET['btn'])) {
+            $pro = $request->get('pro');
+            $order = $request->get('order');
+            $product = Product::where('id_cate', $id)->orderBy('price', $order)->paginate($pro);
+        }
+        else{
+            $product = Product::where('id_cate', $id)->orderBy('price', 'asc')->paginate(8);
+        }
+
+        return view('client.product', ['cate' => $cate, 'product'=> $product, 'numberprod' => $pro, 'order' => $order]);
     }
 }

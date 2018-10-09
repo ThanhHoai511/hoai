@@ -77,3 +77,20 @@ a:hover{
 h3{
 	margin-left: 150px;
 }
+.page{
+	width: 200px;
+}
+.select{
+	float: left;
+	margin: 20px 50px 20px 10px;
+}
+.paginate{
+	width: 70%;
+	margin: 0 auto;
+}
+.page1{
+	margin-left: 300px;
+}
+.filter{
+	margin-top: 25px;
+}
