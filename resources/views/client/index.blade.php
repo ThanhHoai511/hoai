@@ -31,12 +31,12 @@
 	  	</a>
 	</div>
 	<div class="noibat">
-		<h3>Sản phẩm nổi bật</h3>
+		<h3>FEATURED PRODUCT</h3>
 		<div class="row">
 			@foreach($featured as $f)
 			  	<div class="col-md-4">
 			    	<div class="thumbnail">
-			      		<a href="#">
+			      		<a href="{{ url('product', [$f->id]) }}">
 			     			@php
                                 $imgs = $f->getImage($f->id);
                             @endphp
@@ -48,12 +48,12 @@
 		</div>
 	</div>
 	<div class="sanpham">
-		<h3>Sản phẩm</h3>
+		<h3>PRODUCT</h3>
 		<div class="row">
 			@foreach($product as $pro)
 			  	<div class="col-md-3">
 			    	<div class="thumbnail">
-			      		<a href="product/{{ $pro->id }}">
+			      		<a href="{{ url('product', [$pro->id]) }}">
 			        		@php
                                 $imgs = $pro->getImage($pro->id);
                             @endphp

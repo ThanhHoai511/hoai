@@ -12,7 +12,7 @@
             <label>Category Parent</label>
             <select name="cate" id="">
                 @foreach($allcate as $c)
-                <option value="{{ $c->id }}" {{ $cate->id_cate == $c->id ? 'selected' : ''}}>{{ $c->name }}</option>
+                    <option value="{{ $c->id }}" {{ $cate->id_cate == $c->id ? 'selected' : ''}}>{{ $c->name }}</option>
                 @endforeach
             </select>
         </div>

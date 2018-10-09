@@ -11,9 +11,9 @@
         <div class="form-group">
             <label>Size</label>
             <select class="form-control" id="size" class="size" name="size">
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
+                <option value="S" {{ old('size') == 'S' ? 'selected' : ''}}>S</option>
+                <option value="M" {{ old('size') == 'M' ? 'selected' : ''}}>M</option>
+                <option value="L" {{ old('size') == 'L' ? 'selected' : ''}}>L</option>
             </select>
         </div>
         <div class="form-group">
@@ -32,15 +32,15 @@
             <label>Category Parent</label>
             <select name="cate" id="">
                 @foreach($cate as $c)
-                    <option value="{{$c->id}}">{{ $c->name }}</option>
+                    <option value="{{$c->id}}" {{ $c->id == old('cate') ? "selected" :  ""}}>{{ $c->name }}</option>
                 @endforeach
             </select>
         </div>
         <div class="form-group">
             <label>Featured Product</label>
             <select class="form-control" id="featured" class="featured" name="featured">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
+                <option value="0" {{ old('featured') == 0 ? 'selected' : ''}}>No</option>
+                <option value="1" {{ old('featured') == 1 ? 'selected' : ''}}>Yes</option>
             </select>
         </div>
         <button type="submit" name="btnAdd" class="btn btn-default">Add</button>

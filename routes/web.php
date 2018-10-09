@@ -15,6 +15,7 @@ Route::group(['prefix' => '/'], function() {
     Route::get('product/{id}', 'User\CoffeeShopController@detail')->name('detail');
     Route::post('product/{id}', 'User\CoffeeShopController@comment')->name('comment');
     Route::get('cart', 'User\CoffeeShopController@cart')->name('cart');
+    Route::get('category/{id}', 'User\CoffeeShopController@category');
 });
 
 
