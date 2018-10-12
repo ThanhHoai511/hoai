@@ -61,6 +61,7 @@
                             <div class="caption">
                             	<p class="price">{{ $pro->price }} VND</p>
 					            <p class="name">{{ $pro->name }}</p>
+					            <a href="{{ route('addCart', ['id' => $pro->id]) }}"><p class="glyphicon glyphicon-shopping-cart cart_icon"></p></a>
 					        </div>
 			      		</a>
 			    	</div>

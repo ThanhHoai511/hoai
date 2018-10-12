@@ -2,11 +2,11 @@ td img{
 	width: 100px;
 	height: 100px;
 }
-span.input-group-addon{
+.input-group-addon{
 	float:left;
 	height: 30px;
 }
-input.quantity{
+.quantity{
 	float: left;
 	height: 30px;
 	text-align: center;

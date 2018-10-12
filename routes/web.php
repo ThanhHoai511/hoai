@@ -14,10 +14,16 @@ Route::get('/', 'User\CoffeeShopController@index')->name('index');
 Route::group(['prefix' => '/'], function() {
     Route::get('product/{id}', 'User\CoffeeShopController@detail')->name('detail');
     Route::post('product/{id}', 'User\CoffeeShopController@comment')->name('comment');
-    Route::get('cart', 'User\CoffeeShopController@cart')->name('cart');
     Route::get('category/{id}', 'User\CoffeeShopController@category');
 });
 
+Route::group(['prefix' => 'cart'], function() {
+    Route::get('/', 'User\CartController@cart')->name('cart');
+    Route::get('add/{id}', 'User\CartController@add')->name('addCart');
+    Route::get('delete', 'User\CartController@delete')->name('deleteAll');
+    Route::get('removeItem/{id}', 'User\CartController@removeItem')->name('removeItem');
+    Route::get('payment', 'User\CartController@payment')->name('payment');
+});
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role']], function() {
     Route::group(['prefix' => 'category'], function() {

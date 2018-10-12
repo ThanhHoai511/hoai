@@ -8,18 +8,24 @@
 	<link rel="stylesheet" href="{{ asset('client/css/index.css') }}">
     <link rel="stylesheet" href="{{ asset('client/css/detail.css') }}">
     <link rel="stylesheet" href="{{ asset('client/css/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('client/css/payment.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
 	<div class="container">
 		<div class="header">
 			<div class="header-left col-md-6 col-sm-12">
-				<img src="{{ asset('client/images/icon.png') }}" alt="">
-				<h1>Coffee Shop</h1>
+                <a href="{{ route('index') }}">
+                    <img src="{{ asset('client/images/icon.png') }}" alt="">
+                    <h1>Coffee Shop</h1>
+                </a>
 			</div>
 			<div class="header-right col-md-6 col-sm-12">
 			  	<ul class="nav navbar-nav">
                     @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cart') }}">{{ __('Cart') }} <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
@@ -28,7 +34,7 @@
                         </li>
                     @else
                     	<li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Cart') }} <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                            <a class="nav-link" href="{{ route('cart') }}">{{ __('Cart') }} <span class="glyphicon glyphicon-shopping-cart"></span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -45,7 +45,7 @@
 	<div class="product">
 		<div class="row button">
 			<a href="{{ route('index') }}"><button class="btn btn-primary">Home</button></a>
-			<a href="{{ route('cart') }}"><button class="btn btn-success">Add to Cart</button></a>
+			<a href="{{ route('addCart', ['id' => $product->id]) }}"><button class="btn btn-success">Add to Cart</button></a>
 		</div>
 		<div class="row detail">
 			<h2>{{ $product->name }}</h2>

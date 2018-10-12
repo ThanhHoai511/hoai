@@ -1,0 +1,25 @@
+.infor{
+	width: 40%;
+	margin:0 auto;
+}
+.infor h2{
+	color:blue;
+	font-style: italic;
+	padding-bottom: 20px;
+	padding-left: 30px;
+}
+.inp{
+	margin:10px;
+}
+.infor label{
+	width: 70px;
+}
+.infor input{
+	width: 300px;
+	height: 35px;
+	border-radius: 5px;
+	border: 1px solid;
+}
+.infor .btn{
+	margin-left: 50px;
+}
